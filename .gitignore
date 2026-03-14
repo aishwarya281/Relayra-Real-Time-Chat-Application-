@@ -8,8 +8,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Dependency directories
-jspm_packages/
+
 
 # Environment variables
 .env
@@ -25,8 +24,7 @@ dist/
 # React build
 frontend/build/
 
-# Next.js
-.next/
+
 
 # Coverage directory used by tools like istanbul
 coverage/
@@ -38,10 +36,7 @@ Thumbs.db
 # IDE / Editor files
 .vscode/
 .idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
+
 
 # Temporary files
 *.tmp
@@ -53,6 +48,3 @@ Thumbs.db
 # Optional eslint cache
 .eslintcache
 
-# Mac system files
-.AppleDouble
-.LSOverride
