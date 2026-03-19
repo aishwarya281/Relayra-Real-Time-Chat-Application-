@@ -1,9 +1,12 @@
+import { useSocketContext } from "../../context/SocketContext";
 import useConversation from "../../zustand/useConversation"
 
 const Conversation = ({conversation, lastIdx, emoji }) => {
 	const { selectedConversation, setSelectedConversation } = useConversation();
 
 	const isSelected = selectedConversation?._id === conversation._id;
+	const { onlineUsers } = useSocketContext();
+	const isOnline = onlineUsers.includes(conversation._id);
 	
 	
   return (
@@ -12,7 +15,7 @@ const Conversation = ({conversation, lastIdx, emoji }) => {
 				${isSelected ? "bg-sky-500" : ""}
 			`}onClick={() => setSelectedConversation(conversation)}
 			>
-				<div className='avatar online'>
+				<div className={`avatar ${isOnline ? "online" : ""}`}>
 					<div className='w-12 rounded-full'>
 						<img
   src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${conversation.username}&gender=${conversation.gender}`}
@@ -31,7 +34,6 @@ const Conversation = ({conversation, lastIdx, emoji }) => {
 
 			{!lastIdx && <div className='divider my-0 py-0 h-1' />}
 		</>
-  )
-}
-
-export default Conversation
+	);
+};
+export default Conversation;
